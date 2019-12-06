@@ -2,17 +2,15 @@ public class PasswordCheckMain {
 
     public static void main(String[] args) {
 
-        new PasswordValidation("password");
+        String password = "";
+
+        PasswordValidation checker =    new PasswordValidation();
+
+        System.out.println(checker.PasswordIsValid(password));
+
+        System.out.println( checker.passwordIsOk(password));
+       // checker.passwordIsOk(password);
     }
 
-    public static boolean passwordIsOK(String password)
-    {
-        boolean result = false;
-        if(password.length() < 8){
-            result = true;
-        }
 
-
-        return result;
-    }
 }

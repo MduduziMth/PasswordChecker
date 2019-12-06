@@ -1,56 +1,74 @@
-import java.sql.SQLOutput;
 import java.util.regex.Pattern;
 
 public class PasswordValidation {
 
     public static  int counter = 0;
-    public String Password;
 
 
-    public PasswordValidation(String Password){
-        this.Password = Password;
+
+    public PasswordValidation(){
+
     }
 
 
-     public static void  PasswordIsValid(String PassWord){
+     public static String  PasswordIsValid(String password){
+        String errorMessage = "";
 
-        if(PassWord.length() > 8) {
+        if(password.length() >= 8) {
                 counter ++;
             } else{
-            System.out.println("Password should be longer than 8 characters");
+            errorMessage +=  "password should be longer than 8 characters\n";
             }
 
-        if(PassWord != " ") {
+        if(password != "") {
             counter ++;
             } else {
-            System.out.println("Password should exist");
+            errorMessage += "password should exist\n";
+
             }
 
-        if(hasDigit(PassWord)) {
+        if(hasDigit(password)) {
             counter ++;
             } else {
-            System.out.println("password should at least have one digit");
+            errorMessage += "password should at least have one digit\n";
+
             }
 
-        if(hasLowerCase(PassWord)) {
+        if(hasLowerCase(password)) {
             counter++;
             } else {
-            System.out.println("");
+            errorMessage += "password should have at least one lowercase letter\n";
+
         }
 
-        if(!hasUpperCase(PassWord)){
+        if(hasUpperCase(password)){
             counter++;
         } else {
-            System.out.println("");
+            errorMessage += "password should have at least one uppercase letter\n";
+
         }
 
-        if(hasSpecialChar(PassWord)){
+        if(hasSpecialChar(password)){
             counter++;
         } else{
-            System.out.println("");
+            errorMessage += "password should have at least one special character\n";
+
         }
 
+        if(password =="" && password.length() < 8)
+            errorMessage += "Password is never Ok!\n";
+
+
+        return errorMessage;
      }
+
+    public boolean passwordIsOk(String password)
+    {
+        return counter >=3;
+
+    }
+
+
 
 
 
@@ -63,18 +81,21 @@ public class PasswordValidation {
 
     public static boolean hasUpperCase(String Password)
     {
-        return  true;
+        return Pattern.compile("[A-Z]").matcher(Password).find();
     }
 
     public static boolean hasLowerCase(String Password)
     {
-        return  true;
+        return Pattern.compile("[a-z]").matcher(Password).find();
     }
 
     public static boolean hasSpecialChar(String Password)
     {
-        return  true;
+        return Pattern.compile("[!@#$%^&*(),.?\":{}|<>]").matcher(Password).find();
     }
+
+
+
 
 
 
