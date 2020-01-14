@@ -55,9 +55,7 @@ public class PasswordValidation {
 
         }
 
-        if(password =="" && password.length() <= 8)
-            errorMessage += "password is never Ok!";
-
+    
 
         return errorMessage;
      }
@@ -69,8 +67,7 @@ public class PasswordValidation {
         }
         else 
             return counter >= 3;
-        
-
+       
     }
 
 
