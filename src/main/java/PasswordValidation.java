@@ -64,6 +64,12 @@ public class PasswordValidation {
 
     public boolean passwordIsOk(String password)
     {
+        if(!password.isEmpty() && password.length() < 8){
+            return false;
+        }
+        else {
+            return counter >= 3;
+        }
         return counter >=3;
 
     }
