@@ -67,10 +67,9 @@ public class PasswordValidation {
         if(!password.isEmpty() && password.length() < 8){
             return false;
         }
-        else {
+        else 
             return counter >= 3;
-        }
-        return counter >=3;
+        
 
     }
 
