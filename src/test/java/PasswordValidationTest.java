@@ -37,9 +37,6 @@ class PasswordValidationTest {
         assertEquals("password should have at least one special character\n",PasswordValidation.PasswordIsValid("Password1"));
 
 
-        assertEquals(true, checker.passwordIsOk("Password1"));
-
-
         assertEquals(true,PasswordValidation.hasDigit("1asd"));
 
         assertEquals(false,PasswordValidation.hasDigit("aaa"));
@@ -57,6 +54,19 @@ class PasswordValidationTest {
         assertEquals(false,PasswordValidation.hasSpecialChar("zxcvfd"));
 
 
+    }
+    
+    @Test
+    void isPasswordOK()
+    {
+        PasswordValidation checker =  new PasswordValidation();
+        checker.PasswordIsValid("P");
+
+        assertEquals(false, checker.passwordIsOk("P"));
+
+
+        checker.PasswordIsValid("Password1");
+        assertEquals(true, checker.passwordIsOk("Password1"));
     }
 
 }
