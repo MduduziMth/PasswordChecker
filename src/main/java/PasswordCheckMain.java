@@ -8,8 +8,8 @@ public class PasswordCheckMain {
 
         System.out.println(checker.PasswordIsValid(password));
 
-       System.out.println( checker.passwordIsOk(password));
-        checker.passwordIsOk(password);
+        System.out.println( checker.passwordIsOk(password));
+      
     }
 
 
