@@ -54,6 +54,9 @@ public class PasswordValidation {
             errorMessage += "password should have at least one special character\n";
 
         }
+         
+         if(password =="" && password.length() <= 8)
+            errorMessage += "password is never Ok!";
 
     
 
